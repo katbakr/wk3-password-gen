@@ -39,11 +39,35 @@ function genPass() {
         var specialChar = specList[specialIndex]
 
     //If statements for using user inputs to choose what is added to final password
+   
+    //if statement for uppercase choice push
+
     if (includeUppercase==="Y","y","yes","YES", "Yes") {
         passwordGroup.push(uppercase)
        } else if (includeUppercase!=="Y","y","yes","YES", "Yes"){
         passwordGroup.push()
        }
 
-}
+    //if statement for number choice push
+
+    if (includeNumbers==="Y","y","yes","YES", "Yes") {
+        passwordGroup.push(number)
+      } else if (includeNumbers!=="Y","y","yes","YES", "Yes"){
+       passwordGroup.push()
+      }
+
+    //if statement for special character choice push
+
+    if (includeSpec==="Y","y","yes","YES", "Yes") {
+        passwordGroup.push(specialChar)
+      } else if (includeSpec!=="Y","y","yes","YES", "Yes"){
+       passwordGroup.push()
+      }
+
+    //if statement for mandatory lowercase push
+
+    passwordGroup.push(lowercase)  
+
+    }
+    
 }
