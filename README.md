@@ -4,6 +4,7 @@ An application that takes user inputs to create a randomly generated password us
 
 ## Link to Deployed Application
 
+https://katbakr.github.io/wk3-password-gen/
 
 ## Description
 This is an application that takes user inputs to create a randomly generated password using user choices for length, lowercase, uppercase, numbers, and special characters. This can be used to quickly create secure passwords that can be copied and used for users to avoid using repeat or easy passwords for websites. I learned how to properly use functions, if else statements, and for loops to pull from a random list of characters to create a random list using user input options.
