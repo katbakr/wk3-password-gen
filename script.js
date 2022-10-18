@@ -12,7 +12,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 ///////////////////////// DO NOT CHANGE ABOVE HERE /////////////////////////
-function genPass() {
+function generatePassword() {
     //variables for user input prompts and character lists
     var chooseLength = window.prompt ("How long do you want your password? Enter number between 8-128.")
     var includeUppercase = window.prompt ("Do you need uppercase letters in your password? Enter Yes or No.")
@@ -42,32 +42,33 @@ function genPass() {
    
     //if statement for uppercase choice push
 
-    if (includeUppercase==="Y","y","yes","YES", "Yes") {
-        passwordGroup.push(uppercase)
-       } else if (includeUppercase!=="Y","y","yes","YES", "Yes"){
-        passwordGroup.push()
-       }
+      if (includeUppercase==="Y","y","yes","YES", "Yes"){
+      passwordFinal.push(uppercase)
+      } else if (includeUppercase!=="Y","y","yes","YES", "Yes"){
+      passwordFinal.push()
+      }
 
     //if statement for number choice push
 
-    if (includeNumbers==="Y","y","yes","YES", "Yes") {
-        passwordGroup.push(number)
+      if (includeNumbers==="Y","y","yes","YES", "Yes") {
+      passwordFinal.push(number)
       } else if (includeNumbers!=="Y","y","yes","YES", "Yes"){
-       passwordGroup.push()
+      passwordFinal.push()
       }
 
     //if statement for special character choice push
 
-    if (includeSpec==="Y","y","yes","YES", "Yes") {
-        passwordGroup.push(specialChar)
+      if (includeSpec==="Y","y","yes","YES", "Yes") {
+      passwordFinal.push(specialChar)
       } else if (includeSpec!=="Y","y","yes","YES", "Yes"){
-       passwordGroup.push()
+      passwordFinal.push()
       }
 
     //if statement for mandatory lowercase push
 
-    passwordGroup.push(lowercase)  
+      passwordFinal.push(lowercase)  
 
     }
-    
+    var password = passwordFinal.join("")
+    window.alert("Your new password is: " + password)  
 }
