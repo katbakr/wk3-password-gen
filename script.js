@@ -12,76 +12,83 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 ///////////////////////// DO NOT CHANGE ABOVE HERE /////////////////////////
+
 function generatePassword() {
     //variables for user input prompts and character lists
     var chooseLength = window.prompt ("How long do you want your password? Enter number between 8-128.")
-    var includeUppercase = confirm ("Do you need uppercase letters in your password? Enter Yes or No.")
-    var includeNumbers = confirm ("Do you need numbers in your password? Enter Y or N.")
-    var includeSpec = confirm ("Do you need a special character in your password? Enter Y or N.")
+    var includeLowercase = confirm ("Do you need lowercase letters in your password? Confirm for YES and Cancel for NO.")
+    var includeUppercase = confirm ("Do you need uppercase letters in your password? Confirm for YES and Cancel for NO.")
+    var includeNumbers = confirm ("Do you need numbers in your password? Confirm for YES and Cancel for NO.")
+    var includeSpec = confirm ("Do you need a special character in your password? Confirm for YES and Cancel for NO.")
+
   
     var uppercaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     var lowercaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     var numberList = ["1", "2","3", "4", "5", "6", "7", "8", "9", "0"]
     var specList = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "?", "/", "<", ">"]
   
+
     //variable for final password deploy(?)
     var passwordFinal = []
     var possibleCharacters = []
-    //for loop for pulling random option from array above
-  
+
+    //math.random used to pull random charcter from arrays above 
         var uppercaseIndex = Math.floor(Math.random()*uppercaseList.length);
         var lowercaseIndex = Math.floor(Math.random()*lowercaseList.length);
         var numberIndex = Math.floor(Math.random()*numberList.length);
         var specialIndex = Math.floor(Math.random()*specList.length);
    
-        //variable for NEED HELP
-        var uppercase = uppercaseList[uppercaseIndex]
-        var lowercase = lowercaseList[lowercaseIndex]
-        var number = numberList[numberIndex]
-        var specialChar = specList[specialIndex]
 
       //If statements for using user inputs to choose what is added to final password
    
-      //if statement for uppercase choice concat
+      //If for determining possible length for user password and prompt if input is too small/big
       if (chooseLength < 8 || chooseLength > 128) {
         window.alert("please choose a valid length")
         return null
       }
 
+
+      //if statement for lowercase choice concat
+      if (includeLowercase){
+        possibleCharacters = possibleCharacters.concat(lowercaseList) 
+      }
+
+
+      //if statement for uppercase choice concat
       if (includeUppercase){
-        possibleCharacters.concat(uppercaseList) }
-      // } else if (includeUppercase!=="Y","y","yes","YES", "Yes"){
-      // passwordFinal.concat()
-      // }
+      possibleCharacters = possibleCharacters.concat(uppercaseList) 
+    }
+      
 
     //if statement for number choice concat
 
       if (includeNumbers) {
-        possibleCharacters.concat(numberList) }
-      // } else if (includeNumbers!=="Y","y","yes","YES", "Yes"){
-      // passwordFinal.concat()
-      // }
+      possibleCharacters = possibleCharacters.concat(numberList) 
+    }
+    
 
     //if statement for special character choice concat
 
       if (includeSpec) {
-      possibleCharacters.concat(specList) }
-      // } else if (includeSpec!=="Y","y","yes","YES", "Yes"){
-      // passwordFinal.concat()
-      // }
+      possibleCharacters = possibleCharacters.concat(specList) 
+    }
+      
 
-    //if statement for mandatory lowercase concat
+    //If statement for prompt if user chooses no to all character choices
 
-      if (includeUppercase===false && includeNumbers===false && includeSpec===false) {
-      window.alert("please choose a character")  
-        return null}
-       console.log(possibleCharacters)
-       
+      if (includeUppercase===false && includeNumbers===false && includeSpec===false && includeLowercase===false) {
+      window.alert("Please choose at least one from character options!")  
+        return null
+      }
+      //  console.log(possibleCharacters)
+
+   //for loop for pulling random option from array above    
    for (let i = 0; i < chooseLength; i++)
-        { var randomIndex = Math.floor(Math.random()*possibleCharacters.length)
+      { var randomIndex = Math.floor(Math.random()*possibleCharacters.length)
      passwordFinal.push(possibleCharacters[randomIndex])
     console.log(passwordFinal)
     }
-    window.alert("Your new password is: " + password)
+
+
     return passwordFinal.join("") 
 }
